@@ -1,0 +1,18 @@
+server.port: 9000
+spring:
+ 
+  cloud:
+    gateway:
+      routes:
+      - id: Owner
+        uri: http://localhost:3042/
+        predicates:
+        - Path=/Owner/**
+      - id: Manager
+        uri: http://localhost:3041/
+        predicates:
+        - Path=/Manager/**
+      - id: Receptionist
+        uri: http://localhost:3043/
+        predicates:
+        - Path=/Receptionist/**
